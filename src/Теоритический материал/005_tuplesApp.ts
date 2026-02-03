@@ -1,5 +1,9 @@
 // ===== Tuples (кортежи) =====
 
+// Кортежи позволяют хранить массивы с фиксированным числом элементов, где каждый элемент может иметь свой тип.
+// Это полезно, когда нужно гарантировать определенную структуру данных.
+// Например, кортеж может использоваться для представления координат (x, y) или записи с идентификатором и именем.
+
 const arraySkills: [number, string] = [1, "HTML"];
 console.log(arraySkills);
 
@@ -18,3 +22,14 @@ const skillsArray: skills[] = [
 for (const [id, name] of skillsArray) {
   console.log(id, name);
 }
+
+// Использование кортежей в функциях
+function getUserInfo(): [number, string] {
+	return [1, "Alice"];
+}
+
+const [userId, userName] = getUserInfo();
+console.log(`User ID: ${userId}, User Name: ${userName}`);
+
+// Кортежи помогают обеспечить структуру данных и безопасность типов,
+// гарантируя, что каждый элемент имеет ожидаемый тип и порядок.
