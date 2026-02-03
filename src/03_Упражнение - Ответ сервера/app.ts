@@ -97,3 +97,7 @@ function handlePaymentResponse(response: PaymentResponce) {
 
 handlePaymentResponse(exampleSuccess);
 handlePaymentResponse(exampleFailed);
+
+// Функция handlePaymentResponse использует тип PaymentResponce,
+// который объединяет оба возможных ответа сервера,
+// и корректно обрабатывает каждый из них с помощью проверки статуса.
