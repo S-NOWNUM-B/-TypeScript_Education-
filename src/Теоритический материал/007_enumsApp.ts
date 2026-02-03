@@ -1,4 +1,7 @@
 // ===== Enums =====
+
+// Перечисления (Enums) позволяют создавать набор именованных констант, что улучшает читаемость и поддержку кода.
+
 enum statusCode {
   SUCCESS = 200,
   IN_PROGRESS = 300,
@@ -35,3 +38,6 @@ console.log(getStatusMessage(statusCode.SUCCESS));
 console.log(getStatusMessage(statusCode.IN_PROGRESS));
 console.log(getStatusMessage(statusCode.FAILED));
 console.log(getStatusMessage(statusCode.FAILED + 1));
+
+// Enums помогают сделать код более понятным и управляемым,
+// предоставляя именованные константы вместо "магических чисел".
