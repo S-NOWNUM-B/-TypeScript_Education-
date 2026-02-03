@@ -61,3 +61,7 @@ const user2: User2 = {
 };
 
 console.log("User2:", user2);
+
+// Отличие interface и type в том, что интерфейсы могут быть расширены (extends),
+// а типы - нет. Также интерфейсы могут быть объединены (declaration merging),
+// тогда как типы не могут.
