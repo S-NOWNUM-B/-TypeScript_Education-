@@ -1,5 +1,9 @@
 // ===== Type Aliases =====
 
+// Type Aliases позволяют создавать собственные именованные типы,
+// что улучшает читаемость и поддержку кода.
+// Например, можно создать тип для HTTP методов, чтобы ограничить возможные значения.
+
 type httpMethod = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 function fetchWithAuth(url: string, method: httpMethod) {
@@ -37,3 +41,16 @@ const adminUser: Admin = {
 };
 
 console.log(adminUser);
+
+// Type Aliases помогают структурировать код и обеспечивают безопасность типов,
+// предотвращая ошибки, связанные с неправильным использованием типов данных.
+// Они особенно полезны в больших проектах, где поддержка и читаемость кода имеют важное значение.
+
+type ID = string | number;
+
+function printId(id: ID) {
+	console.log(`ID: ${id}`);
+}
+
+printId(101);
+printId("202A");
