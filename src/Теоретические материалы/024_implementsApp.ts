@@ -20,4 +20,27 @@ const logger = new Looger();
 logger.log('Hello, World!');
 logger.error('An error occurred!');
 
-// В этом примере класс "Looger" реализует интерфейс "ILogger", что гарантирует, что он содержит методы "log" и "error". Это позволяет нам использовать экземпляр класса "Looger" для логирования сообщений и ошибок, зная, что он соответствует контракту, определенному интерфейсом "ILogger".
+interface IPlayable {
+	pay(paymentId: number): void;
+	price?: number;
+}
+
+interface IDeletable {
+	delete(): void;
+}
+
+class User implements IPlayable, IDeletable {
+	delete(): void {
+		console.log('User has been deleted.');
+	}
+	pay(paymentId: number): void {
+		console.log(`Payment with ID ${paymentId} has been processed.`);
+	}
+}
+
+const user = new User();
+user.pay(12345);
+user.delete();
+
+// В этом примере мы создали интерфейс ILogger, который определяет методы log и error. Затем мы создали класс Looger, который реализует этот интерфейс и предоставляет конкретные реализации этих методов. Мы также создали интерфейс IPlayable, который определяет метод pay и необязательное свойство price. Класс User реализует интерфейс IPlayable и IDeletable, предоставляя реализацию методов pay и delete.
+// Использование интерфейсов и ключевого слова implements позволяет нам создавать более структурированный и типобезопасный код, обеспечивая, что классы соответствуют определенным контрактам, заданным интерфейсами.
