@@ -27,3 +27,12 @@ const nullifiedUserService = nullUser(userService);
 console.log(nullifiedUserService.getUsersInDatabase()); // Вывод: 0
 
 // В этом примере мы создали интерфейс IUserService и класс UserService, который реализует этот интерфейс. Затем мы создали функцию nullUser, которая принимает объект, реализующий IUserService, и изменяет его свойство user на 0. Это демонстрирует, как можно использовать паттерн Декоратора для динамического изменения поведения объекта без необходимости создавать новый класс или изменять существующий класс.
+
+function logUsers(obj: IUserService) {
+	console.log(`Current number of users in database: ${obj.getUsersInDatabase()}`);
+	return obj;
+}
+
+const loggedUserService = logUsers(userService); // Вывод: Current number of users in database: 0
+
+// В этом примере мы создали функцию logUsers, которая принимает объект, реализующий IUserService, и выводит текущее количество пользователей в базе данных. Это демонстрирует, как можно использовать паттерн Декоратора для добавления дополнительной функциональности (логирования) к существующему объекту без изменения его структуры или поведения.
