@@ -24,13 +24,13 @@ class Greeter {
 
 // В этом примере декоратор sealed применяется к классу Greeter. Декоратор sealed использует метод Object.seal для предотвращения добавления новых свойств к классу и его прототипу. Это означает, что после применения декоратора sealed, нельзя будет добавить новые свойства или методы к классу Greeter или его прототипу
 
-interface IUserService {
+interface UserServiceInterface {
   user: number;
   getUsersInDatabase(): number;
 }
 
-@nullUser // Применяем декоратор nullUser к классу UserService
-class UserService implements IUserService {
+@nullUser // Применяем декоратор nullUser к классу UserServiceInterface
+class UserServiceInterface implements UserServiceInterface {
   user: number = 1000;
 
   getUsersInDatabase(): number {
@@ -40,9 +40,9 @@ class UserService implements IUserService {
 
 function nullUser(target: Function) {
   // Декоратор класса, который устанавливает свойство user в 0. target - это конструктор класса, к которому применяется декоратор
-  target.prototype.user = 0; // Устанавливаем свойство user в 0 на прототипе класса, чтобы все экземпляры класса UserService имели значение user равное 0
+  target.prototype.user = 0; // Устанавливаем свойство user в 0 на прототипе класса, чтобы все экземпляры класса UserServiceInterface имели значение user равное 0
 }
 
-console.log(new UserService().getUsersInDatabase()); // Вывод: 0
+console.log(new UserServiceInterface().getUsersInDatabase()); // Вывод: 0
 
-// В этом примере декоратор nullUser применяется к классу UserService. Декоратор nullUser изменяет прототип класса UserService, устанавливая свойство user в 0. Это означает, что после применения декоратора nullUser, все экземпляры класса UserService будут иметь значение user равное 0, независимо от того, что было установлено в конструкторе класса.
+// В этом примере декоратор nullUser применяется к классу UserServiceInterface. Декоратор nullUser изменяет прототип класса UserServiceInterface, устанавливая свойство user в 0. Это означает, что после применения декоратора nullUser, все экземпляры класса UserServiceInterface будут иметь значение user равное 0, независимо от того, что было установлено в конструкторе класса.
