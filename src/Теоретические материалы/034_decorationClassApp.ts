@@ -29,7 +29,7 @@ interface UserServiceInterface {
   getUsersInDatabase(): number;
 }
 
-@nullUser // Применяем декоратор nullUser к классу UserServiceInterface
+@threeUserAdvanced // Применяем декоратор threeUserAdvanced к классу UserServiceInterface
 class UserServiceInterface implements UserServiceInterface {
   user: number = 1000;
 
@@ -41,6 +41,13 @@ class UserServiceInterface implements UserServiceInterface {
 function nullUser(target: Function) {
   // Декоратор класса, который устанавливает свойство user в 0. target - это конструктор класса, к которому применяется декоратор
   target.prototype.user = 0; // Устанавливаем свойство user в 0 на прототипе класса, чтобы все экземпляры класса UserServiceInterface имели значение user равное 0
+}
+
+function threeUserAdvanced<T extends { new (...args: any[]): {} }>(constructor: T) {
+  // Декоратор класса, который возвращает новый конструктор, который устанавливает свойство user в 0. constructor - это конструктор класса, к которому применяется декоратор
+  return class extends constructor {
+	user = 3; // Устанавливаем свойство user в 0 в новом конструкторе, чтобы все экземпляры класса UserServiceInterface имели значение user равное 0
+  };
 }
 
 console.log(new UserServiceInterface().getUsersInDatabase()); // Вывод: 0
