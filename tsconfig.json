@@ -5,10 +5,10 @@
     "outDir": "./dist",
 
     // Environment
-    "module": "nodenext",
-    "target": "esnext",
-    "moduleResolution": "nodenext",
-    "lib": ["esnext"],
+    "module": "commonjs",
+    "target": "es2020",
+    "moduleResolution": "node",
+    "lib": ["es2020"],
     "types": ["node"],
 
     // Декораторы
@@ -17,8 +17,7 @@
 
     // Outputs
     "sourceMap": true,
-    "declaration": true,
-    "declarationMap": true,
+    "noEmitOnError": true,
 
     // Строгая типизация
     "strict": true,
@@ -27,11 +26,8 @@
     "skipLibCheck": true,
 
     // Стиль / модули
-    "jsx": "react-jsx",
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "noUncheckedSideEffectImports": true,
-    "moduleDetection": "force"
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
   },
   "include": ["src"]
 }
